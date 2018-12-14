@@ -1,6 +1,3 @@
-# BUAD5112Binpacking
-Files required for the Bin Packing Heuristic Algorithm Assignment
-
 # BUAD5112 Binpacking Heuristic Algorithm Assignment
 This repository contains the files required for the assignment above
 - binpack.json
