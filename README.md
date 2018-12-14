@@ -2,6 +2,6 @@
 This repository contains the files required for the assignment above
 - binpack.json
   - The problem data
-- Binpacking.py
+- BinpackingDev.py
   - The Python development environment for the solution
   - Use the binpack function to code your algorithm
