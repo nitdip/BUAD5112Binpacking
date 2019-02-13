@@ -87,7 +87,7 @@ def binpack(articles,bin_cap):
         
     myUsername = 'insert_username_here'    # always return this variable as the first item
     myNickname = 'insert-nickname_here'    # name to appear on the leaderboard: to opt out specify ''
-	bin_contents = []    # use this list document the article ids for the contents of 
+    bin_contents = []    # use this list document the article ids for the contents of 
                          # each bin, the contents of each is to be listed in a sub-list
     
         
@@ -113,7 +113,7 @@ for problem_id in problems:
     response = None
     
     #while finished == False:
-    team_num, response = binpack(items,bin_cap)
+    team_num, nickname, response = binpack(items,bin_cap)
     #if not isinstance(response,str):
     if isinstance(response,list):
         num_ok, num_over = checkCapacity(items, response, bin_cap)
