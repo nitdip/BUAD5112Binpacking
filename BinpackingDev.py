@@ -85,8 +85,8 @@ def binpack(articles,bin_cap):
                            keys in the items dictionary. 
    """
         
-    myUsername = 'insert_username_here'    # always return this variable as the first item
-    myNickname = 'insert-nickname_here'    # name to appear on the leaderboard: to opt out specify ''
+    myUsername = 'jvalderama'    # always return this variable as the first item
+    myNickname = 'John Ross Valderama'    # name to appear on the leaderboard: to opt out specify ''
     bin_contents = []    # use this list document the article ids for the contents of 
                          # each bin, the contents of each is to be listed in a sub-list
     
@@ -94,6 +94,36 @@ def binpack(articles,bin_cap):
     """ 
     put your algorithm here 
     """
+    
+    toBin = {k:v for (k,v) in sorted(articles.items(), key=lambda value:value[1], reverse=True)}
+    itemsLeft = len(toBin)
+    n = 0
+    binnedCache = {}
+    
+    while itemsLeft > 0:
+        binned = []
+        pile = list(toBin.keys())[n]
+        binned.append(pile)
+        itemsLeft -= 1
+        
+        if n == 0:
+            binnedCache[n] = binned
+            n += 1
+            next
+        else:
+            for i in binnedCache.keys():
+                prevBin = binnedCache[i]
+                fill = toBin[pile] + toBin[prevBin[i]]
+                if fill > bin_cap:
+                    next
+        
+        n += 1
+                
+                
+        
+        
+            
+                
             
     return myUsername, myNickname, bin_contents       # use this return statement when you have items to load in the knapsack
 
