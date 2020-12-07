@@ -95,35 +95,26 @@ def binpack(articles,bin_cap):
     put your algorithm here 
     """
     
+    # sort items from heaviest to lightest
     toBin = {k:v for (k,v) in sorted(articles.items(), key=lambda value:value[1], reverse=True)}
-    itemsLeft = len(toBin)
-    n = 0
-    binnedCache = {}
-    
-    while itemsLeft > 0:
-        binned = []
-        pile = list(toBin.keys())[n]
-        binned.append(pile)
-        itemsLeft -= 1
-        
-        if n == 0:
-            binnedCache[n] = binned
-            n += 1
-            next
+
+    # pack heaviest items first
+    sumWgt = 0
+    keys = []
+    for k,v in toBin.items():
+        sumWgt += v
+        if sumWgt <= bin_cap:
+            keys.append(k)
         else:
-            for i in binnedCache.keys():
-                prevBin = binnedCache[i]
-                fill = toBin[pile] + toBin[prevBin[i]]
-                if fill > bin_cap:
-                    next
-        
-        n += 1
-                
-                
-        
-        
-            
-                
+            # if weight is over capacity append list to bin_contents
+            bin_contents.append(keys)
+            # reset varialbes and record current k,v pair to new iterations
+            sumWgt = 0
+            keys = []
+            sumWgt += v
+            keys.append(k)
+
+    print(bin_contents)
             
     return myUsername, myNickname, bin_contents       # use this return statement when you have items to load in the knapsack
 
